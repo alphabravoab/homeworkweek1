@@ -41,8 +41,8 @@ let doBattle=function(heroicCreature, creature){
   if(!heroicCreature.heroic){return null}
 
     while(heroicCreature.health>0 && creature.health>0){
-        dealDamage(heroicCreature, creature)
-        dealDamage(creature, heroicCreature)
+      if(heroicCreature.health>=0){  dealDamage(heroicCreature, creature)}
+      if(creature.health>=0){        dealDamage(creature, heroicCreature)}
     //    console.log("hero health: "+heroicCreature.health)
     //    console.log("enemy health: "+creature.health)
 
