@@ -1,9 +1,5 @@
 // Variables
-
-
 let hero= {}
-
-
 hero.name="aa"
 hero.heroic=true
 hero.health= 1000
@@ -11,18 +7,17 @@ hero.inventory=[]
 hero.weapon={}
 hero.weapon.type="Sink"
 hero.weapon.damage= 120
-console.log(hero);
+console.log("start hero: "+hero.health);
+
 let centaur= {}
-
-
 centaur.name="Taron"
 centaur.heroic=false
-centaur.health= 500
+centaur.health= 200
 centaur.inventory=[]
 centaur.weapon={}
 centaur.weapon.type="sword"
 centaur.weapon.damage= 100
-console.log(centaur);
+
     //Game logic
 let rest=function(creature){
   creature.health=10
@@ -43,23 +38,29 @@ let equipWeapon=function(creature, index){
 }
 
 let doBattle=function(heroicCreature, creature){
-  if(!heroicCreature.heroic){return null}else{
-  while(heroicCreature>0){
-    dealDamage(heroicCreature, creature)
-    dealDamage(creature, heroicCreature)
-  }
-  if (heroicCreature.health<0){
-    window.alert("you dead")
-  }else {
-    console.log(heroicCreature)
-    return heroicCreature
+  if(!heroicCreature.heroic){return null}
 
-    }
-  }
+    while(heroicCreature.health>0 && creature.health>0){
+        dealDamage(heroicCreature, creature)
+        dealDamage(creature, heroicCreature)
+    //    console.log("hero health: "+heroicCreature.health)
+    //    console.log("enemy health: "+creature.health)
+
+
+
+      }
+
+    //  checkIfDead(heroicCreature.health)
+//if (creature.health<=0){return creature}
+if (heroicCreature.health<=0){window.alert("you dead")}else{return heroicCreature}
+
 }
 
-console.log(dealDamage(centaur,hero));
+
+//console.log(dealDamage(centaur,hero));
 console.log(doBattle(hero, centaur))
+
+console.log("report hero end: " + hero.health)
 
 
 
