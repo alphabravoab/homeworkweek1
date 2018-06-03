@@ -19,8 +19,14 @@ centaur.weapon.type="sword"
 centaur.weapon.damage= 100
 
     //Game logic
+    let statusUpdate=function(){
+      statusUpdating=document.getElementsByClassName("status")
+      statusUpdating[0].innerHTML=`Hero name: ${hero.name} <br>health: ${hero.health} <br> weapon: ${hero.weapon.type}`
+    }
 let rest=function(creature){
-  creature.health=10
+  creature.health=  creature.health+10
+  statusUpdate()
+  window.alert("sleeping")
   return creature
 }
 let pickUpItem=function(creature, item){
@@ -29,11 +35,13 @@ let pickUpItem=function(creature, item){
 }
 let dealDamage=function(attacker, defender){
   defender.health=defender.health-attacker.weapon.damage
+  statusUpdate()
   return defender
 }
 let equipWeapon=function(creature, index){
   creature.weapon=creature.inventory[index]
   creature.inventory.pop(index)
+  statusUpdate()
   return creature
 }
 
@@ -50,17 +58,25 @@ let doBattle=function(heroicCreature, creature){
 
       }
 
-    //  checkIfDead(heroicCreature.health)
-//if (creature.health<=0){return creature}
-if (heroicCreature.health<=0){window.alert("you dead")}else{return heroicCreature}
+        //  checkIfDead(heroicCreature.health)
+    //if (creature.health<=0){return creature}
+    if (heroicCreature.health<=0){window.alert("you dead")}else{window.alert("you won");return heroicCreature}
 
 }
+let newBattle= function(){
+  centaur.health=350
+  console.log(centaur.health)
+  doBattle(hero, centaur)
+}
+
+let ultimateWeapon={ type:"code",damage:160}
+pickUpItem(hero,ultimateWeapon)
 
 
 //console.log(dealDamage(centaur,hero));
-console.log(doBattle(hero, centaur))
+//console.log(doBattle(hero, centaur))
 
-console.log("report hero end: " + hero.health)
+//console.log("report hero end: " + hero.health)
 
 
 

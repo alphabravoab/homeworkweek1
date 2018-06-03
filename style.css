@@ -1,0 +1,20 @@
+.wrapper{
+  margin:auto;
+  width:80%;
+  border: 3px groove #A9A9A9;
+  padding: 10px;
+  display:flex;
+}
+.leftBar{
+  width: 30%;
+border: 3px groove #A9A9A9;
+}
+.hero{
+border: 3px groove #A9A9A9;
+}
+.status{
+border: 3px groove #A9A9A9;
+}
+.adventure{
+  display:flex;
+}

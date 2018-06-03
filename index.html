@@ -5,9 +5,20 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>BB homework</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css">
     </head>
     <body>
-        <h1>Good luck! You can do it!</h1>
+      <div class="wrapper">
+        <div class="leftBar">
+          <div class="hero"><img src="hero.png"></div>
+          <div class="status">Health:<br> weapon:</div>
+        </div>
+        <div class="adventure">
+          <div id="sleep" onclick="rest(hero)"> <img src="rest.png"></div>
+          <div id="weapon" onclick="equipWeapon(hero,0)"><img src="weapon.png"></div>
+          <div id="enemy" onclick="newBattle()"><img src="centaur.png"></div>
+        </div>
+      </div>
         <script src="your_javascript_here.js"></script>
         <script src="tests.js"></script>
     </body>
